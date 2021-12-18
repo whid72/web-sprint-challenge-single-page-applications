@@ -1,4 +1,6 @@
 import React from "react"
+import { Link } from 'react-router-dom';
+
 export default function Form(props) {
 
 
@@ -23,21 +25,21 @@ export default function Form(props) {
 
     return (
         <form id="pizza-form" onSubmit={onSubmit}>
-        <div className='errors'>
-          <div>{errors.name}</div>
-          <div>{errors.size}</div>
-        </div>
+            <div className='errors'>
+                <div>{errors.name}</div>
+                <div>{errors.size}</div>
+            </div>
             <label>Name:
-                <input 
-                placeholder="Enter your name" 
-                type="text" 
-                name="name" 
-                id="name-input" 
-                onChange={onChange}
-                value={values.name} />
+                <input
+                    placeholder="Enter your name"
+                    type="text"
+                    name="name"
+                    id="name-input"
+                    onChange={onChange}
+                    value={values.name} />
             </label>
             <label>Pizza Size:
-                <select name="size" id="size-dropdown" value={values.size}  onChange={onChange}>
+                <select name="size" id="size-dropdown" value={values.size} onChange={onChange}>
                     <option value="Small">Small</option>
                     <option value="Medium">Medium</option>
                     <option value="Large">Large</option>
@@ -60,7 +62,10 @@ export default function Form(props) {
             <label>
                 <input type="text" name="extra" value={values.extra} id="special-text" placeholder="Any special requests?" onChange={onChange} />
             </label>
-            <button id="order-button" disabled={disabled }>Add to order</button>
+            <button id="order-button" disabled={disabled}>Add to order</button>
+            <Link to='/'>
+                <button className="home-button">Return to Home</button>
+            </Link>
         </form>
     )
 }

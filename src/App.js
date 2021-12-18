@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { Route } from 'react-router-dom';
 import Form from "./Pizza";
+import Home from "./Home";
 import Order from "./Order";
 import * as yup from 'yup';
 import schema from './validation/schema';
@@ -62,7 +64,8 @@ const App = () => {
   const postNewData = newData => {
     axios.post(url, newData)
       .then(res => {
-        // setData([res.data, ...data]);
+        setData([res.data, ...data]);
+        console.log(res)
       })
       .catch(err => console.error(err))
       .finally(() => {
@@ -84,6 +87,11 @@ const App = () => {
     <>
       <h1>Lambda Eats</h1>
       <p>You can remove this code and create your own header</p>
+
+      <Route path="/" >
+      <Home />
+      </Route>
+      <Route path="/pizza" >
       <Form
         values={formValues}
         disabled={disabled}
@@ -98,7 +106,7 @@ const App = () => {
           )
         })
       }
-
+      </Route>
     </>
 
   );
