@@ -1,10 +1,12 @@
 import React from "react"
 import { Link } from 'react-router-dom';
-export default function Home(){
-    return(
-        <Link to='/pizza'>
-        
-      <div className="home-button">Home</div>
-      </Link>
+import './Home.css'
+export default function Home() {
+    return (
+        <div className='container'>
+            <Link to='/pizza'>
+                <div className="home-button">Home</div>
+            </Link>
+        </div>
     )
 }

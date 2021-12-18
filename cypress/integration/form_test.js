@@ -37,7 +37,7 @@ describe('Tests', () => {
         it('can type in the input', () => {
             name()
                 .should('have.value', '')
-                .type('Darrion')
+                .type('Darrion White')
                 .should('have.value', 'Darrion')
         })
 
